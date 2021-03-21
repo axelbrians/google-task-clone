@@ -20,6 +20,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/grey_deactivated"
         android:textColorHighlight="@color/blue_fade"
+        android:textCursorDrawable="@drawable/bg_cursor_drawable"
         android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,5 +1,6 @@
 package com.machina.google_task_clone.dialog
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -63,12 +64,17 @@ class BottomSheetAdd(
 
 
         saveButton.setOnClickListener {
-            if (title.text.isNullOrEmpty().not()) {
-                val task = Task(0, title.text.toString(), "")
-                viewModel.addTask(task)
-                dismiss()
-            }
+            dismiss()
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        if (title.text.isNullOrBlank().not()) {
+            val task = Task(0, title.text.toString(), "")
+            viewModel.addTask(task)
+        }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

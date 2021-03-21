@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingHorizontal="20dp"
     android:paddingVertical="12dp"
     android:orientation="horizontal"
@@ -15,9 +15,11 @@
         android:layout_weight="1"
         android:layout_marginTop="6dp">
         <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:background="@drawable/bg_round_check"/>
+            android:id="@+id/vh_task_check"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_baseline_radio_button_unchecked_24"
+            app:tint="@color/grey_icon"/>
     </LinearLayout>
 
     <LinearLayout
