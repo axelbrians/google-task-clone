@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
 import com.machina.google_task_clone.`interface`.OnAddNewTask
 import com.machina.google_task_clone.data.Task
 import com.machina.google_task_clone.databinding.ActivityMainBinding
@@ -52,6 +53,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun showSnackbar() {
+        Snackbar.make(binding.activityMainBottomMenu, "Text label", Snackbar.LENGTH_LONG)
+                .setAction("Undo") {
+                    Log.d(TAG, "undo checking task")
+                }
+                .setAnchorView(binding.activityMainAdd)
+                .show()
     }
 
     private fun initiateUI() {
