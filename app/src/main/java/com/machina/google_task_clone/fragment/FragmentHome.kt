@@ -11,8 +11,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-import com.machina.google_task_clone.MainActivity
-import com.machina.google_task_clone.R
 import com.machina.google_task_clone.data.Task
 import com.machina.google_task_clone.databinding.FragmentHomeBinding
 import com.machina.google_task_clone.model.TaskViewModel
@@ -41,7 +39,16 @@ class FragmentHome: Fragment() {
         }
 
         viewModel.getAllTask.observe(viewLifecycleOwner, { allTask ->
-            mAdapter.setData(allTask)
+
+        })
+
+        viewModel.getUncompletedTask.observe(viewLifecycleOwner, { uncompletedTask ->
+            mAdapter.setUncompletedTask(uncompletedTask)
+
+        })
+
+        viewModel.getCompletedTask.observe(viewLifecycleOwner, { completedTask ->
+            mAdapter.setCompletedTask(completedTask)
         })
 
         return binding.root
@@ -49,7 +56,7 @@ class FragmentHome: Fragment() {
     }
 
     private fun showSnackbar(task: Task, view: ImageView) {
-        Snackbar.make(binding.fragmentHomeRecycler, "Text label", Snackbar.LENGTH_LONG)
+        Snackbar.make(binding.fragmentHomeCoordinator, "Text label", Snackbar.LENGTH_LONG)
                 .setAction("Undo") {
                     Log.d(TAG, "undo checking task")
                     viewModel.updateTask(task)

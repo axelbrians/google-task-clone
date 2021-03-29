@@ -5,6 +5,8 @@ import androidx.lifecycle.LiveData
 class TaskRepository(private val taskDao: TaskDao) {
 
     val getAllTask: LiveData<List<Task>> = taskDao.getAllTask()
+    val getUncompletedTask: LiveData<List<Task>> = taskDao.getUncompletedTask()
+    val getCompletedTask: LiveData<List<Task>> = taskDao.getCompletedTask()
 
     suspend fun addTask(task: Task) {
         taskDao.addTask(task)

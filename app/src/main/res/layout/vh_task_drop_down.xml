@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:background="@color/black_background">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/grey_background"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/vh_task_drop_down_item_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:text="Completed (137)"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/vh_task_drop_down_arrow"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:tint="@color/grey_icon"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vh_task_drop_down_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

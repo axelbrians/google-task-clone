@@ -16,10 +16,10 @@ interface TaskDao {
     suspend fun deleteTask(task: Task)
 
     @Query("SELECT * FROM taskTable WHERE isCompleted = 0")
-    fun getUncompletedTask(): List<Task>
+    fun getUncompletedTask(): LiveData<List<Task>>
 
     @Query("SELECT * FROM taskTable WHERE isCompleted = 1")
-    fun getCompletedTask(): List<Task>
+    fun getCompletedTask(): LiveData<List<Task>>
 
     @Query("SELECT * FROM taskTable ORDER BY isCompleted")
     fun getAllTask(): LiveData<List<Task>>

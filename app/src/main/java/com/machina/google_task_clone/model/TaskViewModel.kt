@@ -19,11 +19,16 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository: TaskRepository
     val getAllTask: LiveData<List<Task>>
+    val getCompletedTask: LiveData<List<Task>>
+    val getUncompletedTask: LiveData<List<Task>>
+
 
     init {
         val taskDao = TaskDatabase.getDatabase(application).taskDao()
         repository = TaskRepository(taskDao)
         getAllTask = repository.getAllTask
+        getCompletedTask = repository.getCompletedTask
+        getUncompletedTask = repository.getUncompletedTask
     }
 
     fun resolveCheckIcon(isCompleted: Boolean, view: ImageView) {
